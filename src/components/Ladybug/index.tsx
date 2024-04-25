@@ -7,20 +7,20 @@ export enum Direction {
   left = 'left'
 }
 
-interface ILadybug
+export interface ILadybug
 {
   posX: number;
   posY: number;
   orientation: Direction;
 }
-
-export const Ladybug : React.FC<ILadybug> = ({ posX, posY, orientation }) => {
+interface LadybugProps { position: ILadybug }
+export const Ladybug : React.FC<LadybugProps> = ({ position }) => {
   return (
     <div
-      className={`ladybug ladybug--${orientation}`}
+      className={`ladybug ladybug--${position.orientation}`}
       style={{
-        top: `${posX}px`,
-        left: `${posY}px`,
+        top: `${position.posX}px`,
+        left: `${position.posY}px`,
       }}
     />
   );
